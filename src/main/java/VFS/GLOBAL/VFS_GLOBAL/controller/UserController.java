@@ -36,4 +36,8 @@ public class UserController {
         return ResponseEntity.ok(userService.checkStatus(trackId, dob));
     }
 
+    @GetMapping("/health")
+    public ResponseEntity<?> checkHealth() {
+        return ResponseEntity.ok("Health of spring boot app is fine!");
+    }
 }
