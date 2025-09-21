@@ -11,12 +11,7 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
-@CrossOrigin(
-        origins = "*",
-        methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.OPTIONS},
-        allowedHeaders = "*",
-        allowCredentials = "false"
-)
+@CrossOrigin(origins = "https://vfs-global-production.up.railway.app")
 @RestController
 @RequestMapping("/user")
 public class UserController {
