@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.util.HashMap;
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://vfs-global-production-827f.up.railway.app")
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -36,7 +36,7 @@ public class UserController {
         return ResponseEntity.ok(userService.checkStatus(trackId, dob));
     }
 
-    @GetMapping("/health")
+    @GetMapping("/checkStatus")
     public ResponseEntity<?> checkHealth() {
         return ResponseEntity.ok("Health of spring boot app is fine!");
     }
