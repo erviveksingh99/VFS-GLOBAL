@@ -9,7 +9,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.util.HashMap;
-@CrossOrigin(origins = "https://vfs-global-production-827f.up.railway.app")
+import java.util.Map;
+
+@CrossOrigin(
+        origins = "*",
+        methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.OPTIONS},
+        allowedHeaders = "*",
+        allowCredentials = "false"
+)
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -37,7 +44,11 @@ public class UserController {
     }
 
     @GetMapping("/health")
-    public ResponseEntity<?> checkHealth() {
-        return ResponseEntity.ok("Health of spring boot app is fine!");
+    public ResponseEntity<Map<String, Object>> healthCheck() {
+        Map<String, Object> response = new HashMap<>();
+        response.put("status", "UP");
+        response.put("service", "VFS-GLOBAL");
+        response.put("timestamp", System.currentTimeMillis());
+        return ResponseEntity.ok(response);
     }
 }
