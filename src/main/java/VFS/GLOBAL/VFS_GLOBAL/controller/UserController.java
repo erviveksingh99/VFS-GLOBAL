@@ -46,4 +46,9 @@ public class UserController {
         response.put("timestamp", System.currentTimeMillis());
         return ResponseEntity.ok(response);
     }
+
+    @GetMapping("/")
+    public String home() {
+        return "App is running!";
+    }
 }
